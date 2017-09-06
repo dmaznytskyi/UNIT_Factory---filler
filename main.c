@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 13:45:34 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/06 15:45:07 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/06 18:15:54 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,14 @@ int	main(void)
 	s.m_h = ft_atoi(tmp[1]);
 	s.m_w = ft_atoi(tmp[2]);
 	dprintf(fd, "%d %d\n", s.m_h, s.m_w);
+	ft_bzero(line, ft_strlen(line));
 	while (1)
 	{
 		i = get_next_line(0, &line);
-		dprintf(fd, "%s\n", line);
+		if (line[0] != '\0')
+			dprintf(fd, "%s\n", line);
 		printf("\e[1m%d\t%d\e[32;0m\n", p_num, 0);
+		ft_bzero(line, ft_strlen(line));
 	}
 	return (0);
 }

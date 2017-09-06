@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 13:45:49 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/06 15:45:06 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/06 18:18:37 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 typedef struct	s_flr
 {
 	int		p_num;
+	char	p_char;
 	int		m_h;
 	int		m_w;
 	char	**map;
