@@ -6,11 +6,11 @@
 #    By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/02 13:18:17 by dmaznyts          #+#    #+#              #
-#    Updated: 2017/09/04 00:12:50 by dmaznyts         ###   ########.fr        #
+#    Updated: 2017/09/06 14:20:10 by dmaznyts         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
+NAME = filler
 
 FLAGS = -Wall -Wextra -Werror
 
@@ -30,41 +30,33 @@ LIB = libft/ft_atoi.o libft/ft_bzero.o libft/ft_isalnum.o libft/ft_isalpha.o\
 	  libft/ft_strmapi.o libft/ft_strncat.o libft/ft_strncmp.o libft/ft_strncpy.o\
 	  libft/ft_strnequ.o libft/ft_strnew.o libft/ft_strnstr.o libft/ft_strrchr.o\
 	  libft/ft_strsplit.o libft/ft_strstr.o libft/ft_strsub.o libft/ft_strtrim.o\
-	  libft/ft_tolower.o libft/ft_toupper.o
+	  libft/ft_tolower.o libft/ft_toupper.o libft/get_next_line.o
 
-OBJ = ft_printf.o ft_putstr_until.o ft_cv.o ft_ns.o ft_pf.o ft_pfw.o\
-	  ft_pprec.o ft_findallmodifiers.o ft_psm.o	ft_writeout.o\
-	  ft_s_small.o ft_s_big.o ft_p_small.o ft_d_small.o ft_d_big.o\
-	  ft_i_small.o ft_o_small.o ft_o_big.o ft_u_small.o ft_u_big.o\
-	  ft_x_small.o ft_x_big.o ft_c_small.o ft_c_big.o\
-	  ft_itoa_base.o ft_isflag.o ft_is_sm.o ft_s_big_extra.o\
-	  ft_wstrjoin.o ft_lltoa_base.o ft_sultoa_base.o ft_uitoa_base.o\
-	  ft_luitoa_base.o ft_sttoa_base.o ft_imttoa_base.o ft_llltoa_base.o\
-	  ft_sitoa_base.o ft_ctoa_base.o ft_luimttoa_base.o ft_usitoa_base.o\
-	  ft_uctoa_base.o ft_lusitoa_base.o ft_luctoa_base.o ft_lultoa_base.o\
-	  ft_wstrdup.o ft_suimttoa_base.o ft_lsttoa_base.o ft_s_small_extra.o\
-	  ft_x_small_extra.o ft_d_small_extra.o ft_o_small_extra.o\
-	  ft_s_big_extra2.o ft_s_big_extra3.o ft_s_big_extra4.o\
-	  ft_s_big_extra5.o
+OBJ = main.o
 
 all: $(NAME)
 
 %.o: %.c
 	@$(CC) $(FLAGS) -g -c -o $@ $<
 
-$(NAME): $(OBJ) libft/libft.a
-	@ar -rc $(NAME) $(OBJ) $(LIB)
-	@ranlib $(NAME)
+$(NAME): $(OBJ) $(LIB)
+	@$(CC) $(FLAGS) -o $(NAME) $(LIB) $(OBJ)
+	@echo "\033[32;1m<filler>	| done\033[0m"
 
 clean:
-	@/bin/rm -f $(OBJ)
 	@make -C libft clean
+	@echo "\033[32;1m<libft *.o>	| removed\033[0m"
+	@/bin/rm -f $(OBJ)
+	@echo "\033[32;1m<filler *.o>	| removed\033[0m"
 	
 fclean: clean
-	@/bin/rm -f $(NAME)
 	@make -C libft fclean
+	@echo "\033[32;1m<libft.a>	| removed\033[0m"
+	@/bin/rm -f $(NAME)
+	@echo "\033[32;1m<./filler>	| removed\033[0m\n-------------------------"
 
-libft/libft.a:
+$(LIB):
 	@make -C libft
+	@echo "\033[32;1m<libft>		| done\033[0m"
 
 re: fclean all

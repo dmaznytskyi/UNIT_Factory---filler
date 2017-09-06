@@ -15,6 +15,19 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <sys/types.h>
+# include <sys/uio.h>
+# define BUFF_SIZE 4
+
+typedef struct	s_gnl
+{
+	int				fd;
+	int				n;
+	int				n2;
+	char			*s;
+	char			tmp[BUFF_SIZE + 1];
+	struct s_gnl	*next;
+}				t_gnl;
 
 typedef	struct	s_list
 {
@@ -81,5 +94,6 @@ void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+int				get_next_line(const int fd, char **line);
 
 #endif
