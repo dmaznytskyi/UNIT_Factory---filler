@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   read_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 13:45:34 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/06 19:41:15 by dmaznyts         ###   ########.fr       */
+/*   Created: 2017/09/06 19:08:54 by dmaznyts          #+#    #+#             */
+/*   Updated: 2017/09/06 19:40:55 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-#include <stdio.h>
-#include <fcntl.h>
 
-//void	init_struct(t_flr *s); //read here player info, map size, init position
-//void	game(t_flr *s); //main game loop with all func below
-//char	**read_map(); //read next map
-//char	**read_piece(); //read piece to place
-//void	place_piece(); //send coordinates to stdout
-
-
-int	main(void)
+void	read_map(t_flr *s)
 {
-	t_flr	s;
+	int		i;
+	char	*line;
+	char	**tmp;
 
-	init_struct(&s);
-
-	return (0);
+	i = 0;
+	line = (char*)malloc(sizeof(char) * 1024);
+	s->map = (char**)malloc(sizeof(char*) * (s->m_h + 5));
+	s->map[s->m_h] = 0;
+	get_next_line(0, &line);
+	while (!ft_strchr(line, 'P') || s->map[i] != 0)
+	{
+		get_next_line(0, &line);
+		tmp = ft_strsplit(line, ' ');
+		s->map[i] = ft_strdup(tmp[1]);
+		i++;
+	//	despit(tmp);
+	}
 }
