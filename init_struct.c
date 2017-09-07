@@ -6,13 +6,11 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 18:28:30 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/06 19:41:13 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/07 15:33:12 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-#include <stdio.h>////////////////////////
-#include <fcntl.h>////////////////////////
 
 static void	initialize(t_flr *s)
 {
@@ -75,6 +73,7 @@ static void	print_info(t_flr *s)
 	dprintf(fd, "p_char	- %c\n", s->p_char);
 	dprintf(fd, "e_char	- %c\n", s->e_char);
 	dprintf(fd, "map	- h-%d w-%d\n", s->m_h, s->m_w);
+	dprintf(fd, "piece	- h-%d w-%d\n", s->p_h, s->p_w);
 }
 
 void		init_struct(t_flr *n)
@@ -94,7 +93,8 @@ void		init_struct(t_flr *n)
 	tmp = ft_strsplit(line, ' ');
 	n->m_h = ft_atoi(tmp[1]);
 	n->m_w = ft_atoi(tmp[2]);
-	print_info(n);
 	read_map(n);
 	find_pos(n);
+	read_piece(n);
+	print_info(n);
 }

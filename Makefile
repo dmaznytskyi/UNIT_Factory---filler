@@ -6,7 +6,7 @@
 #    By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/02 13:18:17 by dmaznyts          #+#    #+#              #
-#    Updated: 2017/09/06 19:41:01 by dmaznyts         ###   ########.fr        #
+#    Updated: 2017/09/07 17:57:45 by dmaznyts         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ LIB = libft/ft_atoi.o libft/ft_bzero.o libft/ft_isalnum.o libft/ft_isalpha.o\
 	  libft/ft_strsplit.o libft/ft_strstr.o libft/ft_strsub.o libft/ft_strtrim.o\
 	  libft/ft_tolower.o libft/ft_toupper.o libft/get_next_line.o
 
-OBJ = main.o init_struct.o read_map.o
+OBJ = main.o init_struct.o read_map.o read_piece.o place_piece.o game.o\
+	  koef_map.o
 
 all: $(NAME)
 

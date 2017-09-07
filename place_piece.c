@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   place_piece.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 13:45:34 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/07 16:54:16 by dmaznyts         ###   ########.fr       */
+/*   Created: 2017/09/07 15:36:26 by dmaznyts          #+#    #+#             */
+/*   Updated: 2017/09/07 15:38:01 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
-#include <stdio.h>
-#include <fcntl.h>
 
-//void	init_struct(t_flr *s); //read here player info, map size, init position
-//void	game(t_flr *s); //main game loop with all func below
-//char	**read_map(); //read next map
-//char	**read_piece(); //read piece to place
-//void	place_piece(); //send coordinates to stdout
-
-int	main(void)
+void	place_piece(t_flr *s)
 {
-	t_flr	s;
+	int	i;
 
-	init_struct(&s);
-	game(&s);
-	return (0);
+	i = 0;
+	(void)s;
 }

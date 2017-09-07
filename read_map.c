@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 19:08:54 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/06 19:40:55 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/07 17:56:47 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,20 @@ void	read_map(t_flr *s)
 	char	**tmp;
 
 	i = 0;
-	line = (char*)malloc(sizeof(char) * 1024);
-	s->map = (char**)malloc(sizeof(char*) * (s->m_h + 5));
+	line = (char*)malloc(sizeof(char) * s->m_w + 6);
+	s->map = (char**)malloc(sizeof(char*) * (s->m_h + 1));
 	s->map[s->m_h] = 0;
 	get_next_line(0, &line);
-	while (!ft_strchr(line, 'P') || s->map[i] != 0)
+	while (i < s->m_h)
 	{
 		get_next_line(0, &line);
 		tmp = ft_strsplit(line, ' ');
 		s->map[i] = ft_strdup(tmp[1]);
 		i++;
-	//	despit(tmp);
 	}
+	get_next_line(0, &line);
+	tmp = ft_strsplit(line, ' ');
+	s->p_h = ft_atoi(tmp[1]);
+	s->p_w = ft_atoi(tmp[2]);
+	free(line);
 }

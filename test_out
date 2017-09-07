@@ -2,3 +2,4 @@ player	- 1
 p_char	- o
 e_char	- x
 map	- h-15 w-17
+piece	- h-2 w-3
