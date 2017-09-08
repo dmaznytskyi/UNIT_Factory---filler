@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 18:28:30 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/07 15:33:12 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/08 17:19:01 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void find_pos(t_flr *s)
 		i++;
 	}
 }
-
+/*
 static void	print_info(t_flr *s)
 {
 	int		fd;
@@ -75,7 +75,7 @@ static void	print_info(t_flr *s)
 	dprintf(fd, "map	- h-%d w-%d\n", s->m_h, s->m_w);
 	dprintf(fd, "piece	- h-%d w-%d\n", s->p_h, s->p_w);
 }
-
+*/
 void		init_struct(t_flr *n)
 {
 	char	**tmp;
@@ -96,5 +96,6 @@ void		init_struct(t_flr *n)
 	read_map(n);
 	find_pos(n);
 	read_piece(n);
-	print_info(n);
+	koef_map(n, 32);
+//	print_info(n);
 }
