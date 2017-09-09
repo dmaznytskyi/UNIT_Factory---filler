@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 13:45:49 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/08 17:19:18 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/09 18:06:06 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,17 @@ typedef struct	s_flr
 	int		**kmap;		//map of koeff's
 }				t_flr;
 
+typedef struct	s_crd
+{
+	int	x;
+	int	y;
+}				t_crd;
+
 void			init_struct(t_flr *s);
 void			read_map(t_flr *s);
 void			game(t_flr *s);
 void			read_piece(t_flr *s);
-void			place_piece(t_flr *s);
+t_crd			place_piece(t_flr *s);
 void			koef_map(t_flr *s, int a);
 
 #endif

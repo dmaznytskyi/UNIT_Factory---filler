@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 17:57:02 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/08 20:07:01 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/09 14:57:58 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ void	check_abs(int *i)
 {
 	if (*i < 0)
 		*i *= -1;
-}
-
-int		rdiff(int a, int b)
-{
-	return (a - b);
 }
 
 int		**alloc(int h, int w)
@@ -37,7 +32,7 @@ int		**alloc(int h, int w)
 		ret[i] = (int*)malloc(sizeof(int) * w);
 		while (j < w)
 		{
-			ret[i][j] = -1;
+			ret[i][j] = -100;
 			j++;
 		}
 		j = 0;
@@ -57,22 +52,26 @@ void	koef_count(t_flr *s, int h, int w)
 	{
 		while (tw < s->m_w)
 		{
-			if (tw < w && s->kmap[th][tw] != 0 && rdiff(tw, w) > rdiff(th, h))
+			//horizontal
+			if (tw < w && th <= h)
 				s->kmap[th][tw] = (tw - w);
-			else if (th < h && s->kmap[th][tw] != 0 && rdiff(th, h) > rdiff(tw, w))
+			if (tw > w && th >= h)
+				s->kmap[th][tw] = (tw - w);
+			if (tw < w && th >= h)
+				s->kmap[th][tw] = (tw - w);
+			if (tw > w && th <= h)
+				s->kmap[th][tw] = (tw - w);
+			//vertical
+			if (tw <= w && th < h && (th - h) < s->kmap[th][tw])
 				s->kmap[th][tw] = (th - h);
-			else if (tw < h && s->kmap[th][tw] != 0 && rdiff(tw, h) > rdiff(th, w))
-				s->kmap[th][tw] = (tw - h);
-			else if (th < w && s->kmap[th][tw] != 0 && rdiff(th, w) > rdiff(tw, h))
-				s->kmap[th][tw] = (th - w);
-			else if (tw > w && s->kmap[th][tw] != 0 && rdiff(w, tw) > rdiff(h, th))
-				s->kmap[th][tw] = (w - tw);
-			else if (th > h && s->kmap[th][tw] != 0 && rdiff(h, th) > rdiff(w, tw))
-				s->kmap[th][tw] = (h - th);
-			else if (tw > h && s->kmap[th][tw] != 0 && rdiff(w, th) > rdiff(h, tw))
-				s->kmap[th][tw] = (w - th);
-			else if (th > w && s->kmap[th][tw] != 0 && rdiff(h, tw) > rdiff(w, th))
-				s->kmap[th][tw] = (h - tw);
+			if (tw >= w && th > h && (th - h) > s->kmap[th][tw])
+				s->kmap[th][tw] = (th - h);
+			if (tw <= w && th > h && (th - h) < s->kmap[th][tw])
+				s->kmap[th][tw] = (th - h);
+			if (tw >= w && th < h && (th - h) > s->kmap[th][tw])
+				s->kmap[th][tw] = (th - h);
+			if (tw > w && th < h)
+				s->kmap[th][tw] = (th - h);
 			check_abs(&s->kmap[th][tw]);
 			tw++;
 		}
@@ -98,6 +97,7 @@ void	koef_map(t_flr *s, int a)
 			if (s->map[i][j] == s->e_char - a && s->kmap[i][j] != 0)
 			{
 				s->kmap[i][j] = 0;
+				koef_count(s, i, j);
 				koef_count(s, i, j);
 			}
 			j++;

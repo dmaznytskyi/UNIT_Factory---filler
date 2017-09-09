@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 18:28:30 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/08 17:19:01 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/09 15:01:39 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,6 @@ void		init_struct(t_flr *n)
 	read_map(n);
 	find_pos(n);
 	read_piece(n);
-	koef_map(n, 32);
+//	koef_map(n, 32);
 //	print_info(n);
 }
