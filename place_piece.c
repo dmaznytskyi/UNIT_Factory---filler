@@ -6,13 +6,13 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:36:26 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/09 18:06:04 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/10 16:33:37 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int		place_piece(t_flr *s)
+t_crd		place_piece(t_flr *s)
 {
 	t_crd	r;
 	t_crd	r0;
@@ -42,11 +42,12 @@ int		place_piece(t_flr *s)
 	{
 		while (j < s->m_w)
 		{
-			if ()
 			j++;
 		}
 		i++;
 		j = 0;
 	}
+	r.x = i;
+	r.y = j;
 	return (r);
 }

@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 17:57:02 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/09 14:57:58 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/10 19:39:01 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,10 @@ void	koef_count(t_flr *s, int h, int w)
 	{
 		while (tw < s->m_w)
 		{
-			//horizontal
-			if (tw < w && th <= h)
-				s->kmap[th][tw] = (tw - w);
-			if (tw > w && th >= h)
-				s->kmap[th][tw] = (tw - w);
-			if (tw < w && th >= h)
-				s->kmap[th][tw] = (tw - w);
-			if (tw > w && th <= h)
-				s->kmap[th][tw] = (tw - w);
-			//vertical
-			if (tw <= w && th < h && (th - h) < s->kmap[th][tw])
-				s->kmap[th][tw] = (th - h);
-			if (tw >= w && th > h && (th - h) > s->kmap[th][tw])
-				s->kmap[th][tw] = (th - h);
-			if (tw <= w && th > h && (th - h) < s->kmap[th][tw])
-				s->kmap[th][tw] = (th - h);
-			if (tw >= w && th < h && (th - h) > s->kmap[th][tw])
-				s->kmap[th][tw] = (th - h);
-			if (tw > w && th < h)
-				s->kmap[th][tw] = (th - h);
+			if (tw - w > th - h && th - h < 0)
+				s->kmap[th][tw] = th - h;
+			else if (tw - w < 0)
+				s->kmap[th][tw] = tw - w;
 			check_abs(&s->kmap[th][tw]);
 			tw++;
 		}
