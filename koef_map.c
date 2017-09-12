@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 17:57:02 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/12 20:10:41 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/12 21:33:48 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,17 @@ void	koef_count(t_flr *s, int h, int w)
 {
 	int	th;
 	int	tw;
-	int	hdiff;
-	int	wdiff;
 
-	hdiff = 0;
-	wdiff = 0;
 	th = 0;
 	tw = 0;
 	while (th < s->m_h)
 	{
 		while (tw < s->m_w)
 		{
-			hdiff = ret_diff(th, h);
-			wdiff = ret_diff(tw, w);
-			if (hdiff >= wdiff)
-				s->kmap[th][tw] = hdiff;
+			if (ret_diff(th, h) >= ret_diff(tw, w))
+				s->kmap[th][tw] = ret_diff(th, h);
 			else
-				s->kmap[th][tw] = wdiff;
+				s->kmap[th][tw] = ret_diff(tw, w);
 			tw++;
 		}
 		tw = 0;
@@ -77,7 +71,7 @@ void	koef_count(t_flr *s, int h, int w)
 
 void	koef_map(t_flr *s, int a)
 {
-	int fd = open("test_out", O_RDWR);
+	int fd = open("test_out", O_CREAT | O_WRONLY | O_TRUNC, 0666);
 	int	i;
 	int	j;
 
@@ -88,6 +82,8 @@ void	koef_map(t_flr *s, int a)
 	{
 		while (j < s->m_w)
 		{
+			if (s->map[i][j] == s->e_char - a || s->map[i][j] == s->e_char)
+				s->kmap[i][j] = 0;
 			if (s->map[i][j] == s->e_char - a && s->kmap[i][j] != 0)
 			{
 				s->kmap[i][j] = 0;
