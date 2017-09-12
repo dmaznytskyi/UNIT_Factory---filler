@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 19:08:54 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/12 19:41:11 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/12 19:52:06 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	read_map(t_flr *s)
 	tmp = ft_strsplit(line, ' ');
 	s->p_h = ft_atoi(tmp[1]);
 	s->p_w = ft_atoi(tmp[2]);
-	free(line);
+	ft_strdel(&line);
 }
