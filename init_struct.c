@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 18:28:30 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/10 16:33:59 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/09/12 19:40:38 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ void		init_struct(t_flr *n)
 	h = 0;
 	w = 0;
 	initialize(n);
-	line = (char*)malloc(sizeof(char) * 1024);
 	get_next_line(0, &line);
 	letter(n, line);
 	get_next_line(0, &line);
