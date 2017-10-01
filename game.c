@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:22:00 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/01 16:47:34 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/01 17:52:54 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	game(t_flr *s)
 
 	while (1)
 	{
+		read_map(s);
 		read_piece(s);
 		r = place_piece(s);
 		if (r.h > 0 && r.w > 0)

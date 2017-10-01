@@ -24,6 +24,7 @@ int	main(void)
 {
 	t_flr	s;
 
+	int fd = open("kek", O_RDONLY);
 	init_struct(&s);
 	game(&s);
 	return (0);

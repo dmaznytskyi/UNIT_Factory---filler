@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 14:07:38 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/07/17 16:30:28 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/01 18:59:39 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/uio.h>
-# define BUFF_SIZE 4
+# define BUFF_SIZE 1
 
 typedef struct	s_gnl
 {

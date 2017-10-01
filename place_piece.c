@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:36:26 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/01 16:47:32 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/01 19:12:20 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int			sum_koef_cnt(t_flr *s, int w, int h)
 	th = 0;
 	tw = 0;
 	res = 0;
-	koef_map(s, 32);
+	koef_map(s, 0);
 	while (th < s->p_h)
 	{
 		while (tw < s->p_w)
@@ -76,10 +76,10 @@ t_crd		place_piece(t_flr *s)
 	int		tsum;
 
 	th = 0;
-	tw = 0;
-	while (th < s->m_h - s->p_h)
+	while (th < s->m_h - s->p_h -1)
 	{
-		while (tw < s->m_w - s->p_w)
+		tw = 0;
+		while (tw < s->m_w - s->p_w -1)
 		{
 			if (place_well(s, tw, th))
 			{
@@ -95,7 +95,6 @@ t_crd		place_piece(t_flr *s)
 			}
 			tw++;
 		}
-		tw = 0;
 		th++;
 	}
 	ret.h = s->last_h;

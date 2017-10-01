@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 18:28:30 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/01 15:01:01 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/01 19:07:47 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	letter(t_flr *s, char *line)
 		s->e_char = 'o';
 	}
 }
-
+/*
 static void find_pos(t_flr *s)
 {
 	int	i;
@@ -64,6 +64,7 @@ static void find_pos(t_flr *s)
 		i++;
 	}
 }
+*/
 /*
 static void	print_info(t_flr *s)
 {
@@ -79,7 +80,7 @@ static void	print_info(t_flr *s)
 */
 void		init_struct(t_flr *n)
 {
-	char	**tmp;
+//	char	**tmp;
 	char	*line;
 	int		h;
 	int		w;
@@ -87,13 +88,14 @@ void		init_struct(t_flr *n)
 	h = 0;
 	w = 0;
 	initialize(n);
-	get_next_line(0, &line);
+	get_next_line(3, &line);
 	letter(n, line);
-	get_next_line(0, &line);
-	tmp = ft_strsplit(line, ' ');
-	n->m_h = ft_atoi(tmp[1]);
-	n->m_w = ft_atoi(tmp[2]);
-	read_map(n);
-	find_pos(n);
+//	get_next_line(0, &line);
+//	tmp = ft_strsplit(line, ' ');
+//	n->m_h = ft_atoi(tmp[1]);
+//	n->m_w = ft_atoi(tmp[2]);
+//	get_next_line(0, &line);
+//	read_map(n);
+//	find_pos(n);
 //	print_info(n);
 }
