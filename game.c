@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:22:00 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/09 18:06:08 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/01 16:47:34 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,20 @@ void	game(t_flr *s)
 	{
 		read_piece(s);
 		r = place_piece(s);
-		if (r.x > 0 && r.y > 0)
+		if (r.h > 0 && r.w > 0)
 		{
-			ft_putnbr(r.x);
+			ft_putnbr(r.h);
 			ft_putchar(' ');
-			ft_putnbr(r.y);
+			ft_putnbr(r.w);
 			ft_putchar('\n');
+			s->last_sum = 0;
 		}
 		else
 		{
-			ft_putnbr(-100);
+			ft_putnbr(0);
 			ft_putchar(' ');
-			ft_putnbr(-100);
+			ft_putnbr(0);
 			ft_putchar('\n');
-		}	
+		}
 	}
 }

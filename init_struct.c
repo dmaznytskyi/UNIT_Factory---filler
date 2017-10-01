@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 18:28:30 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/12 19:40:38 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/01 15:01:01 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	initialize(t_flr *s)
 	s->i_w = 0;
 	s->p_h = 0;
 	s->p_w = 0;
+	s->last_sum = 0;
 }
 
 static void	letter(t_flr *s, char *line)
@@ -94,7 +95,5 @@ void		init_struct(t_flr *n)
 	n->m_w = ft_atoi(tmp[2]);
 	read_map(n);
 	find_pos(n);
-	read_piece(n);
-	koef_map(n, 32);
 //	print_info(n);
 }

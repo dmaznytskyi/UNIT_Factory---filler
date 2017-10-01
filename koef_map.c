@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 17:57:02 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/30 14:57:06 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/01 11:27:27 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,13 @@ void	koef_map(t_flr *s, int a)
 	{
 		while (j < s->m_w)
 		{
-			if (s->map[i][j] == s->e_char - a || s->map[i][j] == s->e_char)
-				s->kmap[i][j] = -1;
+//			if (s->map[i][j] == s->e_char - a || s->map[i][j] == s->e_char)
+//				s->kmap[i][j] = -1;
 			if (s->map[i][j] == s->e_char - a && s->kmap[i][j] != -1)
 			{
 				s->kmap[i][j] = -1;
 				koef_count(s, i, j);
+				break ;
 			}
 			j++;
 		}

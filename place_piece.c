@@ -6,48 +6,99 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:36:26 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/09/10 16:33:37 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/01 16:47:32 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
+int			place_well(t_flr *s, int w, int h)
+{
+	int	l_w;
+	int	l_h;
+	int	one_touch;
+
+	l_h = 0;
+	one_touch = 0;
+	while (l_h < s->p_h)
+	{
+		l_w = 0;
+		while (l_w < s->p_w)
+		{
+			if (s->piece[l_h][l_w] == '*' &&
+					(s->map[h + l_h][w + l_w] != s->e_char ||
+					s->map[h + l_h][w + l_w] != s->e_char - 32) &&
+					(s->map[h + l_h][w + l_w] == s->p_char - 32 ||
+					s->map[h + l_h][w + l_w] == s->p_char) && !one_touch)
+			{
+				one_touch = 1;
+				l_w++;
+			}
+			else if (s->piece[l_h][l_w] == '.' || (s->piece[l_h][l_w] == '*'
+						&& s->map[h + l_h][w + l_w] == '.'))
+				l_w++;
+			else
+				return (0);
+		}
+		l_h++;
+	}
+	return (one_touch);
+}
+
+int			sum_koef_cnt(t_flr *s, int w, int h)
+{
+	int th;
+	int tw;
+	int	res;
+
+	th = 0;
+	tw = 0;
+	res = 0;
+	koef_map(s, 32);
+	while (th < s->p_h)
+	{
+		while (tw < s->p_w)
+		{
+			res += s->kmap[h + th][w + tw];
+			tw++;
+		}
+		tw = 0;
+		th++;
+	}
+	return (res);
+}
+
 t_crd		place_piece(t_flr *s)
 {
-	t_crd	r;
-	t_crd	r0;
-	int		i;
-	int		j;
-	int		i0;
-	int		j0;
+	t_crd	ret;
+	int		th;
+	int		tw;
+	int		tsum;
 
-	i = 0;
-	j = 0;
-	i0 = 0;
-	while (i0 < s->p_h && i0 > 0)
+	th = 0;
+	tw = 0;
+	while (th < s->m_h - s->p_h)
 	{
-		s->p_char == 'o' ? (j0 = 0) : (j0 = s->p_w);
-		while (j0 < s->p_w && j0 > 0)
+		while (tw < s->m_w - s->p_w)
 		{
-			if (s->piece[i0][j0] == '*')
+			if (place_well(s, tw, th))
 			{
-				r0.x = i0;
-				r0.y = j0;
+				tsum = sum_koef_cnt(s, tw, th);
+//				printf("tsum %d\n", tsum);
+//				printf("%d %d\n", th, tw);
+				if (tsum < s->last_sum || s->last_sum == 0)
+				{
+					s->last_h = th;
+					s->last_w = tw;
+					s->last_sum = tsum;
+				}
 			}
-			s->p_char == 'o' ? j0++ : j0--;
+			tw++;
 		}
-		i0++;
+		tw = 0;
+		th++;
 	}
-	while (i < s->m_h)
-	{
-		while (j < s->m_w)
-		{
-			j++;
-		}
-		i++;
-		j = 0;
-	}
-	r.x = i;
-	r.y = j;
-	return (r);
+	ret.h = s->last_h;
+	ret.w = s->last_w;
+	return (ret);
 }
