@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:22:00 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/01 17:52:54 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/02 16:41:33 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	game(t_flr *s)
 	{
 		if (read_map(s))
 		{
+			koef_map(s, 0);
 			read_piece(s);
 			r = place_piece(s);
 			if (r.h > 0 && r.w > 0)

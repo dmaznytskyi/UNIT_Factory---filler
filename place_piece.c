@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:36:26 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/01 19:12:20 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/02 16:45:54 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,15 @@ int			place_well(t_flr *s, int w, int h)
 		while (l_w < s->p_w)
 		{
 			if (s->piece[l_h][l_w] == '*' &&
-					(s->map[h + l_h][w + l_w] != s->e_char ||
-					s->map[h + l_h][w + l_w] != s->e_char - 32) &&
 					(s->map[h + l_h][w + l_w] == s->p_char - 32 ||
 					s->map[h + l_h][w + l_w] == s->p_char) && !one_touch)
-			{
 				one_touch = 1;
-				l_w++;
-			}
 			else if (s->piece[l_h][l_w] == '.' || (s->piece[l_h][l_w] == '*'
 						&& s->map[h + l_h][w + l_w] == '.'))
-				l_w++;
+				;
 			else
 				return (0);
+			l_w++;
 		}
 		l_h++;
 	}
@@ -54,7 +50,6 @@ int			sum_koef_cnt(t_flr *s, int w, int h)
 	th = 0;
 	tw = 0;
 	res = 0;
-	koef_map(s, 0);
 	while (th < s->p_h)
 	{
 		while (tw < s->p_w)
@@ -84,8 +79,6 @@ t_crd		place_piece(t_flr *s)
 			if (place_well(s, tw, th))
 			{
 				tsum = sum_koef_cnt(s, tw, th);
-//				printf("tsum %d\n", tsum);
-//				printf("%d %d\n", th, tw);
 				if (tsum < s->last_sum || s->last_sum == 0)
 				{
 					s->last_h = th;
