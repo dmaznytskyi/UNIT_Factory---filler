@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:36:26 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/02 16:45:54 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/02 20:16:44 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,15 @@ t_crd		place_piece(t_flr *s)
 	int		tsum;
 
 	th = 0;
-	while (th < s->m_h - s->p_h)
+	while (th < s->m_h - s->p_h + 1)
 	{
 		tw = 0;
-		while (tw < s->m_w - s->p_w)
+		while (tw < s->m_w - s->p_w + 1)
 		{
 			if (place_well(s, tw, th))
 			{
 				tsum = sum_koef_cnt(s, tw, th);
-				if (tsum < s->last_sum || s->last_sum == 0)
+				if (tsum < s->last_sum || s->last_sum == -1)
 				{
 					s->last_h = th;
 					s->last_w = tw;
