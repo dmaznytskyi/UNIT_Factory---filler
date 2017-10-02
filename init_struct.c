@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 18:28:30 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/01 19:07:47 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/02 13:08:26 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ void		init_struct(t_flr *n)
 	h = 0;
 	w = 0;
 	initialize(n);
-	get_next_line(3, &line);
+	get_next_line(0, &line);
+//	printf("line1 readed\n");
 	letter(n, line);
 //	get_next_line(0, &line);
 //	tmp = ft_strsplit(line, ' ');

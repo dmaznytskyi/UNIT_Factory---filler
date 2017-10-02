@@ -19,7 +19,7 @@ void	read_piece(t_flr *s)
 	char	**tmp;
 
 	i = 0;
-	get_next_line(3, &line);
+	get_next_line(0, &line);
 	tmp = ft_strsplit(line, ' ');
 	s->p_h = ft_atoi(tmp[1]);
 	s->p_w = ft_atoi(tmp[2]);
@@ -27,7 +27,7 @@ void	read_piece(t_flr *s)
 	s->piece[s->p_h] = 0;
 	while (i < s->p_h)
 	{
-		get_next_line(3, &line);
+		get_next_line(0, &line);
 		s->piece[i] = ft_strdup(line);
 		i++;
 	}

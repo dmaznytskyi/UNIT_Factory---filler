@@ -76,10 +76,10 @@ t_crd		place_piece(t_flr *s)
 	int		tsum;
 
 	th = 0;
-	while (th < s->m_h - s->p_h -1)
+	while (th < s->m_h - s->p_h)
 	{
 		tw = 0;
-		while (tw < s->m_w - s->p_w -1)
+		while (tw < s->m_w - s->p_w)
 		{
 			if (place_well(s, tw, th))
 			{

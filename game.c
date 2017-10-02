@@ -18,23 +18,27 @@ void	game(t_flr *s)
 
 	while (1)
 	{
-		read_map(s);
-		read_piece(s);
-		r = place_piece(s);
-		if (r.h > 0 && r.w > 0)
+		if (read_map(s))
 		{
-			ft_putnbr(r.h);
-			ft_putchar(' ');
-			ft_putnbr(r.w);
-			ft_putchar('\n');
-			s->last_sum = 0;
+			read_piece(s);
+			r = place_piece(s);
+			if (r.h > 0 && r.w > 0)
+			{
+				ft_putnbr(r.h);
+				ft_putchar(' ');
+				ft_putnbr(r.w);
+				ft_putchar('\n');
+				s->last_sum = 0;
+			}
+			else
+			{
+				ft_putnbr(0);
+				ft_putchar(' ');
+				ft_putnbr(0);
+				ft_putchar('\n');
+			}
 		}
 		else
-		{
-			ft_putnbr(0);
-			ft_putchar(' ');
-			ft_putnbr(0);
-			ft_putchar('\n');
-		}
+			break ;
 	}
 }

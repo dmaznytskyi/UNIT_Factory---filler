@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 13:45:34 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/01 14:58:57 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/02 13:02:17 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(void)
 {
 	t_flr	s;
 
-	int fd = open("kek", O_RDONLY);
+//	int fd = open("kek", O_RDONLY);
 	init_struct(&s);
 	game(&s);
 	return (0);

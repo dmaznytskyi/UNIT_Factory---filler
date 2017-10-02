@@ -43,7 +43,8 @@ typedef struct	s_crd
 }				t_crd;
 
 void			init_struct(t_flr *s);
-void			read_map(t_flr *s);
+
+int				read_map(t_flr *s);
 void			game(t_flr *s);
 void			read_piece(t_flr *s);
 t_crd			place_piece(t_flr *s);
