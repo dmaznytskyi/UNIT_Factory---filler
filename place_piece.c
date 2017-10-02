@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 15:36:26 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/02 20:16:44 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/02 21:21:28 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,15 @@ int			sum_koef_cnt(t_flr *s, int w, int h)
 	int	res;
 
 	th = 0;
-	tw = 0;
 	res = 0;
 	while (th < s->p_h)
 	{
+		tw = 0;
 		while (tw < s->p_w)
 		{
 			res += s->kmap[h + th][w + tw];
 			tw++;
 		}
-		tw = 0;
 		th++;
 	}
 	return (res);

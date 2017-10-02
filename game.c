@@ -6,11 +6,21 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:22:00 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/02 20:16:37 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/02 20:42:40 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+
+void	pf(t_flr *s)
+{
+	int i;
+	
+	i = 0;
+	while (i < s->p_h)
+		ft_strdel(&s->piece[i++]);
+	free(s->piece);
+}
 
 void	game(t_flr *s)
 {
@@ -36,4 +46,5 @@ void	game(t_flr *s)
 		ft_putnbr(0);
 		ft_putchar('\n');
 	}
+	pf(s);
 }

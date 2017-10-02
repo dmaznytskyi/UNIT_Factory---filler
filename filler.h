@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 13:45:49 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/02 19:38:14 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/02 21:26:24 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ typedef struct	s_flr
 	int		m_h;		//map height
 	int		m_w;		//map width
 	char	**map;		//map
-	int		i_h;		//initial height coord
-	int		i_w;		//initial width coord
 	int		p_h;		//piece height
 	int		p_w;		//piece width
 	char	**piece;	//piece
@@ -45,7 +43,7 @@ typedef struct	s_crd
 void			init_struct(t_flr *s);
 
 int				read_map(t_flr *s);
-int				read_init(t_flr *s);
+void			read_init(t_flr *s);
 void			game(t_flr *s);
 void			read_piece(t_flr *s);
 t_crd			place_piece(t_flr *s);

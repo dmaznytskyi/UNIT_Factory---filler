@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 18:28:30 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/02 20:16:33 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/02 21:35:36 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ static void	initialize(t_flr *s)
 	s->m_h = 0;
 	s->m_w = 0;
 	s->map = 0;
-	s->i_h = 0;
-	s->i_w = 0;
 	s->p_h = 0;
 	s->p_w = 0;
 	s->last_sum = -1;
@@ -55,6 +53,7 @@ void		init_struct(t_flr *n)
 	initialize(n);
 	get_next_line(0, &line);
 	letter(n, line);
+	ft_strdel(&line);
 	read_init(n);
 	game(n);
 }

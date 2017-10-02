@@ -6,11 +6,12 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 17:57:02 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/02 20:32:09 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/02 21:56:40 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
+#include <time.h>//////////////////////////////////
 
 void	nuluator(t_flr *s)
 {
@@ -89,19 +90,22 @@ void	koef_count(t_flr *s, int h, int w)
 
 void	koef_map(t_flr *s)
 {
-	int fd = open("test_out", O_CREAT | O_WRONLY | O_TRUNC, 0666);
+	int fd = open("test_out", O_CREAT | O_WRONLY | O_APPEND, 0666);
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
 	alloc(s);
+	time_t start = time(NULL);
 	while (i < s->m_h)
 	{
 		while (j < s->m_w)
 		{
 			if (s->map[i][j] == '.')
+			{
 				koef_count(s, i, j);
+			}
 			else if (s->map[i][j] == s->e_char)
 				s->kmap[i][j] = -42;
 			else if (s->map[i][j] == s->e_char - 32)
@@ -113,7 +117,9 @@ void	koef_map(t_flr *s)
 		j = 0;
 		i++;
 	}
-
+	time_t end = time(NULL);
+	dprintf(fd, "%f\n", difftime(end, start));
+/*
 
 
 
@@ -131,5 +137,5 @@ void	koef_map(t_flr *s)
 		j = 0;
 		i++;
 	}
-
+*/
 }
