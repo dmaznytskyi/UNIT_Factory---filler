@@ -6,54 +6,52 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 17:57:02 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/02 20:16:46 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/02 20:32:09 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	nuluator(int ***s, int h, int w)
+void	nuluator(t_flr *s)
 {
 	int i;
 	int j;
 
 	i = 0;
-	while (i < h)
+	while (i < s->m_h)
 	{
 		j = 0;
-		while (j < w)
+		while (j < s->m_w)
 		{
-			*s[i][j] = 0;
+			s->kmap[i][j] = 0;
 			j++;
 		}
 		i++;
 	}
 }
 
-void	alloc(int ***s, int h, int w)
+void	alloc(t_flr *s)
 {
-	int	**ret;
 	int i;
 	int j;
 
-	if (*s)
-		nuluator(s, h, w);
+	if (s->kmap)
+		nuluator(s);
 	else
 	{
-		ret = (int**)malloc(sizeof(int*) * h);
+		s->kmap = (int**)malloc(sizeof(int*) * s->m_h);
 		i = 0;
-		while (i < h)
+		while (i < s->m_h)
 		{
 			j = 0;
-			ret[i] = (int*)malloc(sizeof(int) * w);
-			while (j < w)
+			s->kmap[i] = (int*)malloc(sizeof(int) * s->m_w);
+			while (j < s->m_w)
 			{
-				ret[i][j] = 0;
+				s->kmap[i][j] = 0;
 				j++;
 			}
 			i++;
 		}
-		*s = ret;
 	}
 }
 	
@@ -97,7 +95,7 @@ void	koef_map(t_flr *s)
 
 	i = 0;
 	j = 0;
-	alloc(&s->kmap, s->m_h, s->m_w);
+	alloc(s);
 	while (i < s->m_h)
 	{
 		while (j < s->m_w)
