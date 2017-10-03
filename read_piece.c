@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/07 14:37:55 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/02 21:33:54 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/03 21:05:11 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	read_piece(t_flr *s)
 	s->piece[s->p_h] = 0;
 	while (i < s->p_h)
 	{
-		get_next_line(0, &line);
+		fgnl(&line, s->p_w + 1);
 		s->piece[i] = ft_strdup(line);
 		ft_strdel(&line);
 		i++;

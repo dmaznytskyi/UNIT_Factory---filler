@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   fgnl.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/09/06 19:08:54 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/03 20:54:33 by dmaznyts         ###   ########.fr       */
+/*   Created: 2017/10/03 19:33:07 by dmaznyts          #+#    #+#             */
+/*   Updated: 2017/10/03 21:03:11 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int 	read_map(t_flr *s)
+int	fgnl(char **line, size_t size)
 {
-	int		i;
-	char	*line;
-	int		test;
+	char	*b;
+	int		status;
 
-	i = 0;
-	test = get_next_line(&line, 15);
-	ft_strdel(&line);
-    if (test == 0)
-        return (test);
-	get_next_line(&line, s->m_w + 5);
-	ft_strdel(&line);
-	while (i < s->m_h)
-	{
-		get_next_line(&line, s->m_w + 5);
-		ft_strcpy(s->map[i], line + 4);
-		ft_strdel(&line);
-		i++;
-	}
-    return (test);
+	b = ft_strnew(size);
+	status = read(0, b, size);
+	b[status - 1] = '\0';
+	*line = b;
+//	printf("%s\n", b);
+	return (status);
 }
