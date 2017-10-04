@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 19:08:54 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/04 15:03:21 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/04 15:24:16 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	read_init(t_flr *s)
 	ft_strdel(&line);
 	while (++i < s->m_h)
 	{
-		fgnl(&line, 0);
+		fgnl(&line, 1);
 		s->map[i] = ft_strdup(line + 4);
 		ft_strdel(&line);
 	}
