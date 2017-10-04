@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 13:45:49 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/03 19:53:30 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/04 14:57:31 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ int				check_abs(int i);
 int				ret_diff(int a, int b);
 int				sum_koef_cnt(t_flr *s, int w, int h);
 int				place_well(t_flr *s, int w, int h);
-int				get_next_line(char **line, size_t size);
+int				fgnl(char **line, int st);
 
 #endif

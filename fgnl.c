@@ -6,21 +6,28 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/03 19:33:07 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/03 21:03:11 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/04 14:59:51 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int	fgnl(char **line, size_t size)
+int	fgnl(char **line, int st)
 {
 	char	*b;
-	int		status;
+	char	*r;
+	char	*tmp;
 
-	b = ft_strnew(size);
-	status = read(0, b, size);
-	b[status - 1] = '\0';
-	*line = b;
-//	printf("%s\n", b);
-	return (status);
+	r = ft_strnew(0);
+	while (!ft_strchr(r, '\n') && st != 0)
+	{
+		b = ft_strnew(1);
+		st = read(0, b, 1);
+		tmp = r;
+		r = ft_strjoin(r, b);
+		ft_strdel(&tmp);
+		ft_strdel(&b);
+	}
+	*line = r;
+	return (st);
 }

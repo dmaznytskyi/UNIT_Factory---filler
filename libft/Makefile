@@ -6,7 +6,7 @@
 #    By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/21 12:18:36 by dmaznyts          #+#    #+#              #
-#    Updated: 2017/10/03 19:47:22 by dmaznyts         ###   ########.fr        #
+#    Updated: 2017/10/04 13:23:28 by dmaznyts         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ OBJ = ft_memccpy.o ft_memmove.o ft_strcpy.o ft_strncat.o ft_strstr.o\
 	\
 	ft_lstnew.o	ft_lstdelone.o	ft_lstdel.o	ft_lstadd.o	ft_lstiter.o\
 	ft_lstmap.o\
-	#\
+	\
 	get_next_line.o
 
 all: $(NAME)

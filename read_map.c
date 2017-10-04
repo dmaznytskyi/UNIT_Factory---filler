@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 19:08:54 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/03 20:54:33 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/04 15:00:43 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ int 	read_map(t_flr *s)
 	int		test;
 
 	i = 0;
-	test = get_next_line(&line, 15);
+	test = get_next_line(0, &line);
 	ft_strdel(&line);
     if (test == 0)
         return (test);
-	get_next_line(&line, s->m_w + 5);
+	get_next_line(0, &line);
 	ft_strdel(&line);
 	while (i < s->m_h)
 	{
-		get_next_line(&line, s->m_w + 5);
+		fgnl(&line, 0);
 		ft_strcpy(s->map[i], line + 4);
 		ft_strdel(&line);
 		i++;

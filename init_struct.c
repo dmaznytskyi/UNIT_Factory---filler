@@ -6,7 +6,7 @@
 /*   By: dmaznyts <dmaznyts@student.unit.ua>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/06 18:28:30 by dmaznyts          #+#    #+#             */
-/*   Updated: 2017/10/03 20:22:20 by dmaznyts         ###   ########.fr       */
+/*   Updated: 2017/10/04 13:34:51 by dmaznyts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void		init_struct(t_flr *n)
 	h = 0;
 	w = 0;
 	initialize(n);
-	get_next_line(&line, 25);
+	get_next_line(0, &line);
 	letter(n, line);
 	ft_strdel(&line);
 	read_init(n);
